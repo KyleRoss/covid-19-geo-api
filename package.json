@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/KyleRoss/covid-19-geo-api#readme",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "axios": "^0.19.2",
     "i18n-iso-countries": "^5.1.0",
     "knex": "^0.20.11",
@@ -39,11 +40,13 @@
     "koa-compress": "^3.0.0",
     "koa-router": "^8.0.8",
     "koa2-cors": "^2.0.6",
+    "node-cache": "^5.1.0",
     "node-cron": "^2.0.3",
     "pg": "^7.18.2",
     "us-states-normalize": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "^6.8.0",
+    "nodemon": "^2.0.2"
   }
 }

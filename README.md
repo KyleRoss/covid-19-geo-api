@@ -20,8 +20,19 @@ The following endpoints are available through this API:
 #### Get All Data
 
 ```http
-GET /
+GET /data
 ```
+
+**Query String Parameters:**
+
+| Parameter | Type   | Description                                                  | Default  | Example            |
+| --------- | ------ | ------------------------------------------------------------ | -------- | ------------------ |
+| country   | String | Filter results to a specific country code. Must be a valid [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code. | --       | `?country=us`      |
+| state     | String | Get data for a specific US state. Must be a valid [USPS State abbreviation](https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations). With this parameter set, `country` is optional, but if provided, it must be set to `us`. Results will be returned as an object versus an array of objects. | --       | `?state=sc`        |
+| order     | String | Order the results by a specific field. This may be any field that is in the results. | `active` | `?order=confirmed` |
+| dir       | String | The direction to sort the results by.                        | `DESC`   | `?dir=asc`         |
+
+
 
 ```json
 [{
@@ -29,18 +40,27 @@ GET /
   "country_code": "CC",
   "province": "Province/State Name",
   "province_abbr": "PA",
-  "lat": "0.00000",
-  "long": "-0.00000",
+  "lat": 0.00000,
+  "long": -0.00000,
+  "active": 0,
   "confirmed": 0,
   "recovered": 0,
   "deaths": 0,
+  "mortality_rate": 0.00,
+  "recovery_rate": 0.00,
   "last_update": "2020-03-16T16:53:06.000Z"
 }, {
 	...
 }]
 ```
 
-[Example](https://covid-19-geo-api.herokuapp.com/)
+[Example (All Data)](https://covid-19-geo-api.herokuapp.com/data)
+
+[Example (By Country)](https://covid-19-geo-api.herokuapp.com/data?country=us)
+
+[Example (By State)](https://covid-19-geo-api.herokuapp.com/data?state=sc)
+
+[Example (Ordering)](https://covid-19-geo-api.herokuapp.com/data?order=confirmed&dir=asc)
 
 #### Get Global Totals
 
@@ -50,9 +70,12 @@ GET /totals
 
 ```JSON
 {
+  "total_active": 1000,
   "total_confirmed": 1000,
   "total_recovered": 1000,
-  "total_deaths": 1000
+  "total_deaths": 1000,
+  "mortality_rate": 0.00,
+  "recovery_rate": 0.00
 }
 ```
 
@@ -68,61 +91,16 @@ GET /totals/country
 [{
   "country": "Country Name",
   "country_code": "CC",
+  "total_active": 1000,
   "total_confirmed": 1000,
   "total_recovered": 1000,
-  "total_deaths": 1000
+  "total_deaths": 1000,
+  "mortality_rate": 0.00,
+  "recovery_rate": 0.00
 }, {
 	...
 }]
 ```
 
 [Example](https://covid-19-geo-api.herokuapp.com/totals/country)
-
-#### Get Data by Country Code
-
-```http
-GET /country/:countryCode
-```
-
-```json
-[{
-  "country": "Country Name",
-  "country_code": "CC",
-  "province": "Province/State Name",
-  "province_abbr": "PA",
-  "lat": "0.00000",
-  "long": "-0.00000",
-  "confirmed": 0,
-  "recovered": 0,
-  "deaths": 0,
-  "last_update": "2020-03-16T16:53:06.000Z"
-}, {
-	...
-}]
-```
-
-[Example](https://covid-19-geo-api.herokuapp.com/country/us)
-
-#### Get Data by US State Abbreviation
-
-```http
-GET /country/us/:stateAbbr
-```
-
-```json
-{
-  "country": "Country Name",
-  "country_code": "CC",
-  "province": "Province/State Name",
-  "province_abbr": "PA",
-  "lat": "0.00000",
-  "long": "-0.00000",
-  "confirmed": 0,
-  "recovered": 0,
-  "deaths": 0,
-  "last_update": "2020-03-16T16:53:06.000Z"
-}
-```
-
-[Example](https://covid-19-geo-api.herokuapp.com/country/us/sc)
 

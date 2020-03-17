@@ -3,6 +3,7 @@ const Koa = require('koa');
 const cors = require('koa2-cors');
 const compress = require('koa-compress');
 
+const errorHandler = require('./lib/middleware/error');
 const routes = require('./lib/routes');
 require('./lib/tasks');
 
@@ -16,6 +17,9 @@ app.use(compress());
 
 // Add CORS headers
 app.use(cors());
+
+// Add error handling
+app.use(errorHandler());
 
 // Include routes
 app.use(routes.routes(), routes.allowedMethods({ throw: true }));

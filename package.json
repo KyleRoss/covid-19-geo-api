@@ -11,6 +11,8 @@
   },
   "scripts": {
     "start": "node index",
+    "start:dev": "nodemon index",
+    "production": "cd ./db && knex migrate:latest && cd .. && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

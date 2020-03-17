@@ -34,6 +34,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "i18n-iso-countries": "^5.1.0",
+    "knex": "^0.20.11",
     "koa": "^2.11.0",
     "koa-compress": "^3.0.0",
     "koa-router": "^8.0.8",

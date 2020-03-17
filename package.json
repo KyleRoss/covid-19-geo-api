@@ -1,6 +1,6 @@
 {
   "name": "covid-19-geo-api",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple API to access up-to-date COVID-19 data",
   "main": "index.js",
   "directories": {

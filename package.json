@@ -1,0 +1,48 @@
+{
+  "name": "covid-19-geo-api",
+  "version": "1.0.0",
+  "description": "Simple API to access up-to-date COVID-19 data",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "engines": {
+    "node": "12.16.1"
+  },
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyleRoss/covid-19-geo-api.git"
+  },
+  "keywords": [
+    "covid19",
+    "corona",
+    "coronavirus",
+    "api",
+    "arcgis",
+    "virus"
+  ],
+  "author": "Kyle Ross <thejavascriptguy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KyleRoss/covid-19-geo-api/issues"
+  },
+  "homepage": "https://github.com/KyleRoss/covid-19-geo-api#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "i18n-iso-countries": "^5.1.0",
+    "koa": "^2.11.0",
+    "koa-compress": "^3.0.0",
+    "koa-router": "^8.0.8",
+    "koa2-cors": "^2.0.6",
+    "node-cron": "^2.0.3",
+    "pg": "^7.18.2",
+    "us-states-normalize": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
+}

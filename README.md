@@ -87,6 +87,16 @@ GET /totals
 GET /totals/country
 ```
 
+**Query String Parameters:**
+
+| Parameter | Type   | Description                                                  | Default        | Example                  |
+| --------- | ------ | ------------------------------------------------------------ | -------------- | ------------------------ |
+| country   | String | Filter results to a specific country code. Must be a valid [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code. Results will be an object instead of an array of objects if this parameter is provided. | --             | `?country=us`            |
+| order     | String | Order the results by a specific field. This may be any field that is in the results. | `total_active` | `?order=total_confirmed` |
+| dir       | String | The direction to sort the results by.                        | `DESC`         | `?dir=asc`               |
+
+
+
 ```json
 [{
   "country": "Country Name",
@@ -103,4 +113,8 @@ GET /totals/country
 ```
 
 [Example](https://covid-19-geo-api.herokuapp.com/totals/country)
+
+[Example (Country)](https://covid-19-geo-api.herokuapp.com/totals/country?country=us)
+
+[Example (Ordering)](https://covid-19-geo-api.herokuapp.com/totals/country?order=total_deaths&dir=asc)
 

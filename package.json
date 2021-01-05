@@ -35,7 +35,7 @@
   "homepage": "https://github.com/KyleRoss/covid-19-geo-api#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "i18n-iso-countries": "^5.1.0",
     "knex": "^0.20.11",
     "koa": "^2.11.0",
